@@ -369,7 +369,7 @@ function levelOne(styleOne, styleTwo) {
     h: 25,
     dx: 1,
     dy: 1,
-    speed: 3, //speed de base : 4
+    speed: 5, //speed de base : 4
     ani: {},
     move: false,
     follow: true,
@@ -420,7 +420,19 @@ function levelOne(styleOne, styleTwo) {
     "longerpad",
     "multiplier"
   ]; //"life","sheild", "slowerball", "fasterball", "laserpad", "reducepad", "godball", "longerpad", "multiplier"
-  function mover() {
+  let timestampInitial;
+  function mover(timestamp) {
+    if (!timestampInitial) {
+      timestampInitial = timestamp;
+    }
+
+    const tempsEcoule = timestamp - timestampInitial;
+    console.log("tempsEcoule", tempsEcoule);
+
+    timestampInitial = timestamp;
+
+    const timetstampAlgoDepart = window.performance.now();
+
     let THRESHOLD = 1;
 
     b.x += b.dx * b.speed;
@@ -623,6 +635,7 @@ function levelOne(styleOne, styleTwo) {
     ball.style.top = `${b.y}px`;
 
     if (b.move) {
+      console.log("Duree", window.performance.now() - timetstampAlgoDepart);
       requestAnimationFrame(mover);
     }
   }
