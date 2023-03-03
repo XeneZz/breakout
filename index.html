@@ -1,94 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Train</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Train</title>
-</head>
+  <body>
+    <div class="bloc">
+      <video autoplay="autoplay" loop="" muted="" src="assets/bg.mp4"></video>
+    </div>
+    <!-- Home -->
+    <img src="assets/set.png" alt="settings" id="set" class="set" />
+    <div id="setPage" class="setPage">
+      <div class="container">
+        <div>Settings</div>
+        <div id="closeSet">Close</div>
 
-<body>
-  <div class="bloc">
-    <video autoplay="autoplay" loop="" muted="" src="assets/bg.mp4"></video>
-  </div>
-  <!-- Home -->
-  <img src="assets/set.png" alt="settings" id="set" class="set" />
-  <div id="setPage" class="setPage">
-    <div class="container">
-      <div>Settings</div>
-      <div id="closeSet">Close</div>
+        <input type="range" id="range" min="0" max="100" value="100" />
 
-      <input type="range" id="range" min="0" max="100" value="100" />
-
-      <div id="textSet">100%</div>
-      <div>
-        <img src="assets/music.png" alt="music" id="musicSet" />
+        <div id="textSet">100%</div>
+        <div>
+          <img src="assets/music.png" alt="music" id="musicSet" />
+        </div>
       </div>
     </div>
-  </div>
-  <div id="title" class="title">Breakout</div>
-  <div id="play" class="play">Play</div>
-  <form>
-    <label for="password" style="color: white">Mot de passe :</label>
-    <input type="password" id="password" name="password" />
-    <input type="button" value="Valider" id="check" />
-  </form>
+    <div id="title" class="title">Breakout</div>
+    <div id="play" class="play">Play</div>
+    <form>
+      <label for="password" style="color: white">Mot de passe :</label>
+      <input type="password" id="password" name="password" />
+      <input type="button" value="Valider" id="check" />
+    </form>
 
-  <!-- Level 1 -->
-  <div id="levelanime" class="levelanime">
-    <h1 id="first-line">Level 1</h1>
-    <h3 id="sec-line">Apocalyptic Earth</h3>
-  </div>
-  <img src="assets/pause.png" alt="pause" class="pause" id="pause" />
-  <div class="pausePage" id="pausePage" style="display: none">
-    <div class="container">
-      <div>Pause</div>
-      <div id="playPause">Play</div>
+    <!-- Level 1 -->
+    <div id="levelanime" class="levelanime">
+      <h1 id="first-line">Level 1</h1>
+      <h3 id="sec-line">Apocalyptic Earth</h3>
+    </div>
+    <img src="assets/pause.png" alt="pause" class="pause" id="pause" />
+    <div class="pausePage" id="pausePage" style="display: none">
+      <div class="container">
+        <div>Pause</div>
+        <div id="playPause">Play</div>
 
-      <input type="range" id="volume" min="0" max="100" value="100" />
+        <input type="range" id="volume" min="0" max="100" value="100" />
 
-      <div id="pourcent">100%</div>
-      <div>
-        <img src="assets/menu.png" alt="menu" id="backMenu" />
-        <img src="assets/replay.png" alt="replay" id="replay" />
-        <img src="assets/music.png" alt="music" id="music" />
-        <img src="assets/sound.png" alt="sound" id="sound" />
+        <div id="pourcent">100%</div>
+        <div>
+          <img src="assets/menu.png" alt="menu" id="backMenu" />
+          <img src="assets/replay.png" alt="replay" id="replay" />
+          <img src="assets/music.png" alt="music" id="music" />
+          <img src="assets/sound.png" alt="sound" id="sound" />
+        </div>
       </div>
     </div>
-  </div>
-  <button class="play-button" id="play-button">Play</button>
-  <button class="speedPlus" id="speedPlus">+</button>
-  <button class="speedLess" id="speedLess">-</button>
-  <div class="flexPatern">
-    <div>
-      <div class="paternC" id="paternC1"></div>
-    </div>
-    <div>
-      <div class="patern" id="patern" class="patern"></div>
-      <div class="patern" id="patern2" class="patern"></div>
-      <div class="patern" id="patern3" class="patern"></div>
-      <div class="patern" id="patern4" class="patern"></div>
-      <div class="patern" id="patern5" class="patern"></div>
-      <div class="patern" id="patern5" class="patern"></div>
-      <!-- <div class="patern" id="patern5" class="patern"></div>
+    <button class="play-button" id="play-button">Play</button>
+    <button class="speedPlus" id="speedPlus">+</button>
+    <button class="speedLess" id="speedLess">-</button>
+    <div class="flexPatern">
+      <div><div class="paternC" id="paternC1"></div></div>
+      <div>
+        <div class="patern" id="patern" class="patern"></div>
+        <div class="patern" id="patern2" class="patern"></div>
+        <div class="patern" id="patern3" class="patern"></div>
+        <div class="patern" id="patern4" class="patern"></div>
         <div class="patern" id="patern5" class="patern"></div>
         <div class="patern" id="patern5" class="patern"></div>
-        <div class="patern" id="patern5" class="patern"></div> -->
+        <div class="patern" id="patern5" class="patern"></div>
+        <div class="patern" id="patern5" class="patern"></div>
+        <div class="patern" id="patern5" class="patern"></div>
+        <div class="patern" id="patern5" class="patern"></div>
+      </div>
+      <div><div class="paternC" id="paternC2"></div></div>
     </div>
-    <div>
-      <div class="paternC" id="paternC2"></div>
-    </div>
-  </div>
-  <img src="assets/barskin.png" id="bar" alt="pad" style="display: none" />
+    <img src="assets/barskin.png" id="bar" alt="pad" style="display: none" />
 
-  <img src="assets/ballskin.png" class="ball" alt="ball" id="ball" style="display: none" />
-  <div class="sheild-style" id="getSheild"></div>
-  <!-- Finish Menu -->
-  <div class="finishMenu" id="finishMenu"></div>
-  <div class="backToMenu" id="backToMenu">Back to menu</div>
-  <script src="main.js"></script>
-</body>
-
+    <img
+      src="assets/ballskin.png"
+      class="ball"
+      alt="ball"
+      id="ball"
+      style="display: none"
+    />
+    <div class="sheild-style" id="getSheild"></div>
+    <!-- Finish Menu -->
+    <div class="finishMenu" id="finishMenu"></div>
+    <div class="backToMenu" id="backToMenu">Back to menu</div>
+    <script src="main.js"></script>
+  </body>
 </html>
