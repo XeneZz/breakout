@@ -531,7 +531,7 @@ function levelOne(styleOne, styleTwo) {
           bonus++;
           changeBrickRemain();
           //Bonus
-          const spawn = [brique[i].x, brique[i].y];
+          const spawn = [brique[i].offsetLeft, brique[i].offsetTop];
           if (bonus % 2 === 0 && bonus !== 0) {
             const patern = document.getElementById("patern");
             const boostTexture = new Image();
@@ -641,15 +641,16 @@ function levelOne(styleOne, styleTwo) {
       dx = getBonus[i].offsetTop;
       dx += 2;
       getBonus[i].style.top = `${dx}px`;
-      if (getBonus[i].y > window.innerHeight) {
+      if (getBonus[i].offsetTop > window.innerHeight) {
         getBonus[i].remove();
         bonusStreak--;
       }
       if (
-        getBonus[i].y + boost.h > window.innerHeight - pad.bottom - pad.h &&
-        getBonus[i].y + boost.h < window.innerHeight - pad.bottom &&
-        getBonus[i].x + boost.w > left - pad.w / 2 &&
-        getBonus[i].x < left + pad.w / 2
+        getBonus[i].offsetTop + boost.h >
+          window.innerHeight - pad.bottom - pad.h &&
+        getBonus[i].offsetTop + boost.h < window.innerHeight - pad.bottom &&
+        getBonus[i].offsetLeft + boost.w > left - pad.w / 2 &&
+        getBonus[i].offsetLeft < left + pad.w / 2
       ) {
         getBonus[i].remove();
         bonusStreak--;
@@ -805,34 +806,34 @@ function levelOne(styleOne, styleTwo) {
         ) {
           // Vérifiez si la balle entre en collision avec la brique
           if (
-            b2.x + r > brique[i].x &&
-            b2.x - r < brique[i].x + briqueSetting.w &&
-            b2.y + r > brique[i].y &&
-            b2.y - r < brique[i].y + briqueSetting.h
+            b2.x + r > brique[i].offsetLeft &&
+            b2.x - r < brique[i].offsetLeft + briqueSetting.w &&
+            b2.y + r > brique[i].offsetTop &&
+            b2.y - r < brique[i].offsetTop + briqueSetting.h
           ) {
             // Vérifiez l'emplacement de la collision
             if (
-              b2.x + r > brique[i].x &&
-              b2.x + r < brique[i].x + briqueSetting.w / 2
+              b2.x + r > brique[i].offsetLeft &&
+              b2.x + r < brique[i].offsetLeft + briqueSetting.w / 2
             ) {
               // Inversez la direction de la balle en x
               b2.dx = -1;
             } else if (
-              b2.x - r < brique[i].x + briqueSetting.w &&
-              b2.x - r > brique[i].x + briqueSetting.w / 2
+              b2.x - r < brique[i].offsetLeft + briqueSetting.w &&
+              b2.x - r > brique[i].offsetLeft + briqueSetting.w / 2
             ) {
               // Inversez la direction de la balle en x
               b2.dx = -1;
             }
             if (
-              b2.y + r > brique[i].y &&
-              b2.y + r < brique[i].y + briqueSetting.h / 2
+              b2.y + r > brique[i].offsetTop &&
+              b2.y + r < brique[i].offsetTop + briqueSetting.h / 2
             ) {
               // Inversez la direction de la balle en y
               b2.dy = -1;
             } else if (
-              b2.y - r < brique[i].y + briqueSetting.h &&
-              b2.y - r > brique[i].y + briqueSetting.h / 2
+              b2.y - r < brique[i].offsetTop + briqueSetting.h &&
+              b2.y - r > brique[i].offsetTop + briqueSetting.h / 2
             ) {
               // Inversez la direction de la balle en y
               b2.dy = 1;
@@ -846,7 +847,7 @@ function levelOne(styleOne, styleTwo) {
             bonus++;
             changeBrickRemain();
             //Bonus
-            const spawn = [brique[i].x, brique[i].y];
+            const spawn = [brique[i].offsetLeft, brique[i].offsetTop];
             if (bonus % 2 === 0 && bonus !== 0) {
               const patern = document.getElementById("patern");
               const boostTexture = new Image();
@@ -955,10 +956,10 @@ function levelOne(styleOne, styleTwo) {
           if (brique[i].style.visibility !== "hidden" && isGodBallActive) {
             // Vérifiez si la balle entre en collision avec la brique
             if (
-              b.x + r > brique[i].x &&
-              b.x - r < brique[i].x + briqueSetting.w &&
-              b.y + r > brique[i].y &&
-              b.y - r < brique[i].y + briqueSetting.h
+              b.x + r > brique[i].offsetLeft &&
+              b.x - r < brique[i].offsetLeft + briqueSetting.w &&
+              b.y + r > brique[i].offsetTop &&
+              b.y - r < brique[i].offsetTop + briqueSetting.h
             ) {
               brique[i].style.visibility = "hidden";
               brickCount--;
@@ -975,10 +976,10 @@ function levelOne(styleOne, styleTwo) {
             if (brique[i].style.visibility !== "hidden") {
               // Vérifiez si la balle entre en collision avec la brique
               if (
-                b2.x + r > brique[i].x &&
-                b2.x - r < brique[i].x + briqueSetting.w &&
-                b2.y + r > brique[i].y &&
-                b2.y - r < brique[i].y + briqueSetting.h
+                b2.x + r > brique[i].offsetLeft &&
+                b2.x - r < brique[i].offsetLeft + briqueSetting.w &&
+                b2.y + r > brique[i].offsetTop &&
+                b2.y - r < brique[i].offsetTop + briqueSetting.h
               ) {
                 brique[i].style.visibility = "hidden";
                 brickCount--;
