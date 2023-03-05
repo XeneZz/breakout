@@ -137,7 +137,6 @@ let brique;
 
 function generateBricks() {
   if (brickCount > 0) {
-    console.log("Bricks already generated!");
     return;
   }
   brickCount = 90;
@@ -338,7 +337,6 @@ function levelOne(styleOne, styleTwo) {
     brique[i].style.backgroundColor = `${briqueSetting.color}`;
     brique[i].style.top = `${briqueSetting.top}px`;
     brique[i].style.position = "relative";
-    // console.log(`Position de l'élément ${i}: (${briqueLeft}, ${briqueTop})`);
   }
   //Remaining brick
   const isRemainBrickHere = document.querySelectorAll(".brickRemain-style");
@@ -420,19 +418,7 @@ function levelOne(styleOne, styleTwo) {
     "longerpad",
     "multiplier",
   ]; //"life","sheild", "slowerball", "fasterball", "laserpad", "reducepad", "godball", "longerpad", "multiplier"
-  let timestampInitial;
-  function mover(timestamp) {
-    if (!timestampInitial) {
-      timestampInitial = timestamp;
-    }
-
-    const tempsEcoule = timestamp - timestampInitial;
-    console.log("tempsEcoule", tempsEcoule);
-
-    timestampInitial = timestamp;
-
-    const timetstampAlgoDepart = window.performance.now();
-
+  function mover() {
     let THRESHOLD = 1;
 
     b.x += b.dx * b.speed;
@@ -441,6 +427,7 @@ function levelOne(styleOne, styleTwo) {
     let previousPoints = points;
     ///////////////////////////
     //Rebond raquette
+
     if (
       b.dy > 0 &&
       b.y + b.h * 2 > window.innerHeight - pad.bottom - pad.h &&
@@ -503,34 +490,34 @@ function levelOne(styleOne, styleTwo) {
       if (brique[i].style.visibility !== "hidden" && !isGodBallActive) {
         // Vérifiez si la balle entre en collision avec la brique
         if (
-          b.x + r > brique[i].x &&
-          b.x - r < brique[i].x + briqueSetting.w &&
+          b.x + r > brique[i].offsetLeft &&
+          b.x - r < brique[i].offsetLeft + briqueSetting.w &&
           b.y + r > brique[i].offsetTop &&
-          b.y - r < brique[i].y + briqueSetting.h
+          b.y - r < brique[i].offsetTop + briqueSetting.h
         ) {
           // Vérifiez l'emplacement de la collision
           if (
-            b.x + r > brique[i].x &&
-            b.x + r < brique[i].x + briqueSetting.w / 2
+            b.x + r > brique[i].offsetLeft &&
+            b.x + r < brique[i].offsetLeft + briqueSetting.w / 2
           ) {
             // Inversez la direction de la balle en x
             b.dx = -b.dx;
           } else if (
-            b.x - r < brique[i].x + briqueSetting.w &&
-            b.x - r > brique[i].x + briqueSetting.w / 2
+            b.x - r < brique[i].offsetLeft + briqueSetting.w &&
+            b.x - r > brique[i].offsetLeft + briqueSetting.w / 2
           ) {
             // Inversez la direction de la balle en x
             b.dx = -b.dx;
           }
           if (
-            b.y + r > brique[i].y &&
-            b.y + r < brique[i].y + briqueSetting.h / 2
+            b.y + r > brique[i].offsetTop &&
+            b.y + r < brique[i].offsetTop + briqueSetting.h / 2
           ) {
             // Inversez la direction de la balle en y
             b.dy = -b.dy;
           } else if (
-            b.y - r < brique[i].y + briqueSetting.h &&
-            b.y - r > brique[i].y + briqueSetting.h / 2
+            b.y - r < brique[i].offsetTop + briqueSetting.h &&
+            b.y - r > brique[i].offsetTop + briqueSetting.h / 2
           ) {
             // Inversez la direction de la balle en y
             b.dy = 1;
@@ -578,6 +565,7 @@ function levelOne(styleOne, styleTwo) {
         }
       }
     }
+
     // Points Counter
     if (points - previousPoints === 100) {
     }
@@ -635,7 +623,6 @@ function levelOne(styleOne, styleTwo) {
     ball.style.top = `${b.y}px`;
 
     if (b.move) {
-      console.log("Duree", window.performance.now() - timetstampAlgoDepart);
       requestAnimationFrame(mover);
     }
   }
@@ -935,7 +922,6 @@ function levelOne(styleOne, styleTwo) {
           balls[i].speed += 2;
         }
       }
-      console.log(b.speed);
     },
     slowerball: function () {
       if (b.speed > 3) {
@@ -1175,7 +1161,6 @@ function levelOne(styleOne, styleTwo) {
           if (isClearLevelCalled) {
             clearInterval(launchLeft);
           }
-          console.log(ballInGame);
         }, 500);
 
         requestAnimationFrame(lasermoveLeft);
@@ -1221,7 +1206,6 @@ function levelOne(styleOne, styleTwo) {
   };
   ////////////
   // function consoleLog() {
-  //   console.log(ballInGame);
 
   //   requestAnimationFrame(consoleLog);
   // }
