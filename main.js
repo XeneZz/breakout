@@ -98,7 +98,7 @@ function menu(styleOne, styleTwo) {
 
     body.style.backgroundImage = "url('assets/spacebg.jpg')";
     isClearLevelCalled = false;
-    body.style.backdropFilter = "blur(6px)";
+    //body.style.backdropFilter = "blur(6px)";
     pause.style.display = "block";
 
     setTimeout(() => {
@@ -180,7 +180,7 @@ function generateBricks() {
         "red",
         "gray",
         "skyBlue",
-        "gray"
+        "gray",
       ];
       let brick = new Image();
       brick.src = `assets/${brickColor[a]}Brick.png`;
@@ -202,7 +202,7 @@ function generateBricks() {
         "red",
         "green",
         "skyBlue",
-        "yellow"
+        "yellow",
       ];
       let brick = new Image();
       brick.src = `assets/${brickColor[a]}Brick.png`;
@@ -241,7 +241,7 @@ function levelOne(styleOne, styleTwo) {
 
   //sound
   const sound = {
-    sonbrique: new Audio()
+    sonbrique: new Audio(),
   };
 
   //bar style
@@ -249,7 +249,7 @@ function levelOne(styleOne, styleTwo) {
   const pad = {
     w: 160,
     h: 40,
-    bottom: 100
+    bottom: 100,
   };
   bar.style.display = `${styleTwo}`;
 
@@ -271,7 +271,7 @@ function levelOne(styleOne, styleTwo) {
   const keyPressed = {
     left: false,
     right: false,
-    space: false
+    space: false,
   };
 
   document.onkeydown = function (event) {
@@ -328,7 +328,7 @@ function levelOne(styleOne, styleTwo) {
     w: 80,
     h: 40,
     color: "red",
-    top: 50
+    top: 50,
   };
 
   const brique = document.querySelectorAll("img.brique");
@@ -374,7 +374,7 @@ function levelOne(styleOne, styleTwo) {
     move: false,
     follow: true,
     audiomur: new Audio(),
-    audiopad: new Audio()
+    audiopad: new Audio(),
   };
 
   ball.style.display = "block";
@@ -388,13 +388,13 @@ function levelOne(styleOne, styleTwo) {
   //Boost Setting
   let sheildSetting = {
     w: 50,
-    h: 45
+    h: 45,
   };
   let boost = {
     x: 0,
     y: 0,
     w: 70,
-    h: 25
+    h: 25,
   };
 
   /////////////////
@@ -418,7 +418,7 @@ function levelOne(styleOne, styleTwo) {
     "reducepad",
     "godball",
     "longerpad",
-    "multiplier"
+    "multiplier",
   ]; //"life","sheild", "slowerball", "fasterball", "laserpad", "reducepad", "godball", "longerpad", "multiplier"
   let timestampInitial;
   function mover(timestamp) {
@@ -679,7 +679,7 @@ function levelOne(styleOne, styleTwo) {
   let balls = [];
   let b2Default = {
     move: false,
-    ani: {}
+    ani: {},
   };
 
   function createBall(
@@ -689,7 +689,7 @@ function levelOne(styleOne, styleTwo) {
     deltay,
     size,
     velocity,
-    audio
+    audio,
   ) {
     let newBall = new Image();
 
@@ -713,7 +713,7 @@ function levelOne(styleOne, styleTwo) {
       speed: velocity,
       audiomur: audio,
       audiopad: audio,
-      el: newBall
+      el: newBall,
     });
   }
 
@@ -1217,7 +1217,7 @@ function levelOne(styleOne, styleTwo) {
           bar.src = "assets/barskin.png";
         }, 10000);
       }
-    }
+    },
   };
   ////////////
   // function consoleLog() {
@@ -1375,12 +1375,12 @@ function levelOne(styleOne, styleTwo) {
         formDisplay: "none",
         levelOneDisplay1: "block",
         levelOneDisplay2: "block",
-        isClearLevelCalled: false
+        isClearLevelCalled: false,
       };
 
       localStorage.setItem(
         "actionsToExecute",
-        JSON.stringify(actionsToExecute)
+        JSON.stringify(actionsToExecute),
       );
       location.reload();
     }
@@ -1447,7 +1447,7 @@ if (localStorage.getItem("actionsToExecute")) {
   musicPause.src = "assets/musicLocked.png";
   levelOne(
     actionsToExecute.levelOneDisplay1,
-    actionsToExecute.levelOneDisplay2
+    actionsToExecute.levelOneDisplay2,
   );
   isClearLevelCalled = actionsToExecute.isClearLevelCalled;
 
