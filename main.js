@@ -1128,10 +1128,12 @@ function levelOne(styleOne, styleTwo) {
 
             for (let a = 0; a < brique.length; a++) {
               if (
-                getAllLaser[i].offsetTop < brique[a].y + briqueSetting.h &&
-                getAllLaser[i].offsetTop > brique[a].y &&
-                getAllLaser[i].offsetLeft > brique[a].x &&
-                getAllLaser[i].offsetLeft < brique[a].x + briqueSetting.w &&
+                getAllLaser[i].offsetTop <
+                  brique[a].offsetTop + briqueSetting.h &&
+                getAllLaser[i].offsetTop > brique[a].offsetTop &&
+                getAllLaser[i].offsetLeft > brique[a].offsetLeft &&
+                getAllLaser[i].offsetLeft <
+                  brique[a].offsetLeft + briqueSetting.w &&
                 brique[a].style.visibility !== "hidden"
               ) {
                 brique[a].style.visibility = "hidden";
@@ -1175,10 +1177,12 @@ function levelOne(styleOne, styleTwo) {
 
             for (let a = 0; a < brique.length; a++) {
               if (
-                getAllLaser[i].offsetTop < brique[a].y + briqueSetting.h &&
-                getAllLaser[i].offsetTop > brique[a].y &&
-                getAllLaser[i].offsetLeft > brique[a].x &&
-                getAllLaser[i].offsetLeft < brique[a].x + briqueSetting.w &&
+                getAllLaser[i].offsetTop <
+                  brique[a].offsetTop + briqueSetting.h &&
+                getAllLaser[i].offsetTop > brique[a].offsetTop &&
+                getAllLaser[i].offsetLeft > brique[a].offsetLeft &&
+                getAllLaser[i].offsetLeft <
+                  brique[a].offsetLeft + briqueSetting.w &&
                 brique[a].style.visibility !== "hidden"
               ) {
                 brique[a].style.visibility = "hidden";
