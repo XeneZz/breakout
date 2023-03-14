@@ -1,1 +1,8 @@
+# Changer de repo distant
+git remote set-url origin git@github.com:XeneZz/breakout.git
+
+# Utiliser une clé ssh spécifique
 git config --add --local core.sshCommand 'ssh -i ~/.ssh/<nom clé privée>'
+
+# Combinaison pour "push"
+git add . && git commit -m "fix: XXX" && git push
